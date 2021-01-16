@@ -8,7 +8,9 @@ export default function Container() {
 	return (
 		<>
 			{loading ? (
-				''
+				<div>
+					<h1 style={{ color: 'white' }}>Yükleniyor...</h1>
+				</div>
 			) : (
 				<div className="container">
 					<WeatherSide />

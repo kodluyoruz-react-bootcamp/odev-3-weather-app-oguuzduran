@@ -4,9 +4,9 @@ import axios from 'axios';
 const WeatherContext = createContext(null);
 
 export const WeatherProvider = ({ children }) => {
-	const [selectCity, setSelectCity] = useState('istanbul');
+	const [selectCity, setSelectCity] = useState({ value: 'İstanbul', label: 'İstanbul' });
 
-	const apiUrl = `https://api.collectapi.com/weather/getWeather?data.lang=tr&data.city=${selectCity}`;
+	const apiUrl = `https://api.collectapi.com/weather/getWeather?data.lang=tr&data.city=${selectCity.value}`;
 	const [weatherData, setWeatherData] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -30,6 +30,7 @@ export const WeatherProvider = ({ children }) => {
 		setWeatherData,
 		loading,
 		setSelectCity,
+		selectCity,
 	};
 
 	return <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>;
