@@ -1,37 +1,44 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import WeatherContext from '../context/WeatherContext';
+import WeatherIcon from './WeatherIcon';
 
-export class WeekContainer extends Component {
-	render() {
-		return (
-			<>
-				<div className="week-container">
-					<ul className="week-list">
-						<li className="active">
-							<i className="day-icon" data-feather="sun"></i>
-							<span className="day-name">Tue</span>
-							<span className="day-temp">29°C</span>
-						</li>
-						<li>
-							<i className="day-icon" data-feather="cloud"></i>
-							<span className="day-name">Wed</span>
-							<span className="day-temp">21°C</span>
-						</li>
-						<li>
-							<i className="day-icon" data-feather="cloud-snow"></i>
-							<span className="day-name">Thu</span>
-							<span className="day-temp">08°C</span>
-						</li>
-						<li>
-							<i className="day-icon" data-feather="cloud-rain"></i>
-							<span className="day-name">Fry</span>
-							<span className="day-temp">19°C</span>
-						</li>
-						<div className="clear"></div>
-					</ul>
-				</div>
-			</>
-		);
-	}
+export default function WeekContainer() {
+	const { weatherData } = useContext(WeatherContext);
+	return (
+		<div className="week-container">
+			<ul className="week-list">
+				<li className="active">
+					<WeatherIcon weatherStatus={weatherData.result[1].status} iconName="day" />
+					<span className="day-name">{weatherData.result[1].day}</span>
+					<span className="day-temp">{weatherData.result[1].min}°C</span>
+				</li>
+				<li>
+					<WeatherIcon weatherStatus={weatherData.result[2].status} iconName="day" />
+					<span className="day-name">{weatherData.result[2].day}</span>
+					<span className="day-temp">{weatherData.result[2].min}°C</span>
+				</li>
+				<li>
+					<WeatherIcon weatherStatus={weatherData.result[3].status} iconName="day" />
+					<span className="day-name">{weatherData.result[3].day}</span>
+					<span className="day-temp">{weatherData.result[3].min}°C</span>
+				</li>
+				<li>
+					<WeatherIcon weatherStatus={weatherData.result[4].status} iconName="day" />
+					<span className="day-name">{weatherData.result[4].day}</span>
+					<span className="day-temp">{weatherData.result[4].min}°C</span>
+				</li>
+				<li>
+					<WeatherIcon weatherStatus={weatherData.result[5].status} iconName="day" />
+					<span className="day-name">{weatherData.result[5].day}</span>
+					<span className="day-temp">{weatherData.result[5].min}°C</span>
+				</li>
+				<li>
+					<WeatherIcon weatherStatus={weatherData.result[6].status} iconName="day" />
+					<span className="day-name">{weatherData.result[6].day}</span>
+					<span className="day-temp">{weatherData.result[6].min}°C</span>
+				</li>
+				<div className="clear"></div>
+			</ul>
+		</div>
+	);
 }
-
-export default WeekContainer;
