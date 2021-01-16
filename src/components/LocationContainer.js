@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { CityProvider } from '../context/CityContext';
+import SelectBox from './SelectBox';
 
-export class LocationContainer extends Component {
-	render() {
-		return (
-			<>
+export default function LocationContainer() {
+	return (
+		<>
+			<CityProvider>
 				<div className="location-container">
-					<button className="location-button">
-						{' '}
-						<i data-feather="map-pin"></i>
-						<span>Change location</span>
-					</button>
+					<SelectBox />
 				</div>
-			</>
-		);
-	}
+			</CityProvider>
+		</>
+	);
 }
-
-export default LocationContainer;
