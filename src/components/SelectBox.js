@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Select from 'react-select';
 import CityContext from '../context/CityContext';
 import WeatherContext from '../context/WeatherContext';
